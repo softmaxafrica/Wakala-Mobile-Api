@@ -68,9 +68,9 @@
 	  <None Remove="Resources\Images\customerservice.png" />
 	  <None Remove="Resources\Images\custservice.png" />
 	  <None Remove="Resources\Images\expenses.png" />
+	  <None Remove="Resources\Images\history.gif" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\icon.png" />
-	  <None Remove="Resources\Images\icon_installation_step3.gif" />
 	  <None Remove="Resources\Images\jouhxtudiozlogo.png" />
 	  <None Remove="Resources\Images\location.png" />
 	  <None Remove="Resources\Images\loginn.jpg" />

@@ -34,7 +34,9 @@ public partial class AgentLogin : ContentPage
             LoggedData.LoggedUser.password = loggedInUser.password;
             if(LoggedData.LoggedUser.agentCode != null)
             {
-                 Application.Current.MainPage = new NavigationPage(new Home());
+                // Application.Current.MainPage = new NavigationPage(new Home());
+                await Navigation.PushAsync(new Agent.Home());
+
             }
         }
     }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mobilewakala.Agent.TicketHistory"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"             
              Title="TicketHistory">
 
 
@@ -17,10 +18,19 @@
             <RoundRectangle Margin="-5,-30,-5,-2"
                             CornerRadius="30,30,0,0"
                             Fill="White"/>
-            <VerticalStackLayout Margin="30,0,30,0">
+            <tabView:SfTabView x:Name="tabView" TabBarPlacement="Bottom" SelectionChanged="tabView_SelectionChanged">
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Historia Ya Miamala" ImageSource="history" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
+                        <tabView:SfTabItem.Content>
 
+                            <VerticalStackLayout Margin="10,0,10,0">
+                                <Label FontAttributes="Bold"
+     FontFamily="bold"
+     FontSize="Medium"
+     Text="Maombi Mapya Yaliyo Kufikia"
+    />
 
-                <Frame>
+                                <Frame>
                     <CollectionView   x:Name="TicketHistoryListLoaded"   SelectionMode="Single"  Margin="0,5,0,5">
 
 
@@ -74,6 +84,18 @@
 
 
             </VerticalStackLayout>
+
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+
+                    <tabView:SfTabItem Header="Nyumbani" ImageSource="home" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
+                        <tabView:SfTabItem.Content>
+                            <!-- Content for "Nyumbani" tab -->
+                            <Label Text="Content for Nyumbani tab"/>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
         </Grid>
     </Grid>
 </ContentPage>

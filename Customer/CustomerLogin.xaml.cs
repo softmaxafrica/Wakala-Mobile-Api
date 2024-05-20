@@ -68,8 +68,8 @@ public partial class CustomerLogin : ContentPage
                     loggedInCustomer = JsonConvert.DeserializeObject<CustomerLoginModel>(userJson);
                      if (LoggedCustomer.loggedCust.CustomerId != null)
                     {
-                        //Navigation.PushAsync(new CustomerHome());
-                        Application.Current.MainPage = new NavigationPage(new CustomerHome());
+                        Navigation.PushAsync(new CustomerHome());
+                        //Application.Current.MainPage = new NavigationPage(new CustomerHome());
 
                 }
 

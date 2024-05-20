@@ -62,6 +62,12 @@ public partial class TicketHistory : ContentPage
         }
     }
     #endregion
+    private void tabView_SelectionChanged(object sender, Syncfusion.Maui.TabView.TabSelectionChangedEventArgs e)
+    {
 
+        // Navigation.PushAsync(new Home());
+        Navigation.PopAsync();
+
+    }
 }
 

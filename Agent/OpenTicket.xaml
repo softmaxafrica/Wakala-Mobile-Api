@@ -5,7 +5,7 @@
              xmlns:sfavatar="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:Sfpopup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
              BackgroundColor="Gray"
-
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              x:Class="mobilewakala.Agent.OpenTicket"
              xmlns:local="clr-namespace:mobilewakala.ViewModels"
              >
@@ -16,7 +16,7 @@
 
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions=".3*,.7*">
+    <Grid RowDefinitions=".2*,.8*">
         <Image Aspect="AspectFill" Source="location.png"/>
         <Grid BackgroundColor="Brown" Opacity=".8"/>
         <Grid ColumnDefinitions="*,*">
@@ -28,66 +28,81 @@
             <RoundRectangle Margin="-5,-30,-5,-2"
                             CornerRadius="30,30,0,0"
                             Fill="White"/>
-            <VerticalStackLayout Margin="10,0,10,0">
-                <Label FontAttributes="Bold"
+ 
+                <tabView:SfTabView x:Name="tabView" TabBarPlacement="Bottom" SelectionChanged="tabView_SelectionChanged">
+                    <tabView:SfTabView.Items>
+                        <tabView:SfTabItem Header="Maombi Ya Huduma" ImageSource="customerservice" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
+                            <tabView:SfTabItem.Content>
+
+                                <VerticalStackLayout Margin="10,0,10,0">
+                                    <Label FontAttributes="Bold"
      FontFamily="bold"
      FontSize="Medium"
      Text="Maombi Mapya Yaliyo Kufikia"
     />
-                <Frame>
-
-
-                    <CollectionView   x:Name="TicketList"   SelectionMode="Single"  >
-
-
-
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <ScrollView>
-                                <Frame  Margin="0,10,0,0" BackgroundColor="#eee">
                                     <VerticalStackLayout>
-                                        <Grid >
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Row="0" Grid.Column="0" Text="Namba Ya Mteja:" HorizontalOptions="Center" />
-                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding phoneNumber}" HorizontalOptions="Center" />
-                                            <Label Grid.Row="1" Grid.Column="0" Text="Mtandao:"  />
-                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding network}" HorizontalOptions="Center" />
-                                            <Label Grid.Row="2" Grid.Column="0" Text="Huduma:" />
-                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding serviceRequested}" HorizontalOptions="Center"/>
-                                            <Label Grid.Row="3" Grid.Column="0" Text="Maelezo:" />
-                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding description}" HorizontalOptions="Center" />
+                                        <!--<Frame >-->
 
-                                            <Label Grid.Row="5" Grid.Column="0" Text="Tarehe:" />
-                                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding ticketCreationDateTime}" HorizontalOptions="Center" />
+                                        <ScrollView >
+
+                                            <CollectionView   x:Name="TicketList"   SelectionMode="Single" HorizontalScrollBarVisibility="Always">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Frame  Margin="0,10,0,0" BackgroundColor="#eee">
+                                                            <Grid >
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="Auto" />
+                                                                </Grid.RowDefinitions>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Label Grid.Row="0" Grid.Column="0" Text="Namba Ya Mteja:" HorizontalOptions="Center" />
+                                                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding phoneNumber}" HorizontalOptions="Center" />
+                                                                <Label Grid.Row="1" Grid.Column="0" Text="Mtandao:"  />
+                                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding network}" HorizontalOptions="Center" />
+                                                                <Label Grid.Row="2" Grid.Column="0" Text="Huduma:" />
+                                                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding serviceRequested}" HorizontalOptions="Center"/>
+                                                                <Label Grid.Row="3" Grid.Column="0" Text="Maelezo:" />
+                                                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding description}" HorizontalOptions="Center" />
+
+                                                                <Label Grid.Row="5" Grid.Column="0" Text="Tarehe:" />
+                                                                <Label Grid.Row="5" Grid.Column="1" Text="{Binding ticketCreationDateTime}" HorizontalOptions="Center" />
 
 
-                                        </Grid>
+                                                            </Grid>
+                                                            <Frame.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="Frame_Tapped" />
+                                                            </Frame.GestureRecognizers>
+                                                        </Frame>
+
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+                                        </ScrollView>
+
+
+                                        <!--</Frame>-->
                                     </VerticalStackLayout>
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Frame_Tapped" />
-                                    </Frame.GestureRecognizers>
-                                </Frame>
-                                </ScrollView>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
+                                </VerticalStackLayout>
+                            </tabView:SfTabItem.Content>
+                        </tabView:SfTabItem>
 
-                    </CollectionView>
-
-
-                </Frame>
-            </VerticalStackLayout>
-        </Grid>
+                        <tabView:SfTabItem Header="Nyumbani" ImageSource="home" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
+                            <tabView:SfTabItem.Content>
+                                <!-- Content for "Nyumbani" tab -->
+                                <Label Text="Content for Nyumbani tab"/>
+                            </tabView:SfTabItem.Content>
+                        </tabView:SfTabItem>
+                    </tabView:SfTabView.Items>
+                </tabView:SfTabView>
+         </Grid>
     </Grid>
 </ContentPage>

@@ -122,4 +122,11 @@ public partial class OpenTicket : ContentPage
         }
     }
 
+    private void tabView_SelectionChanged(object sender, Syncfusion.Maui.TabView.TabSelectionChangedEventArgs e)
+    {
+
+        // Navigation.PushAsync(new Home());
+        Navigation.PopAsync();
+
+    }
 }

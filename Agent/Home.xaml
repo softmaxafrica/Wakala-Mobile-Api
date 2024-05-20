@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
              xmlns:sfavatar="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-                        xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              x:Class="mobilewakala.Agent.Home"
              >
     <Grid RowDefinitions=".3*,.7*">
@@ -21,7 +21,7 @@
             
                 <tabView:SfTabView x:Name="tabView">
                 <tabView:SfTabView.Items>
-                    <tabView:SfTabItem Header="Nyumbani" ImageSource="home" TextColor="Brown" FontAttributes="Bold" TabImagePosition="Left">
+                    <tabView:SfTabItem Header="Nyumbani" ImageSource="home" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
                             
                             <VerticalStackLayout Margin="10,40,10,0">
@@ -106,7 +106,7 @@ Text="Karibu,Wakala "/>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
 
-                    <tabView:SfTabItem Header="Mpangilio" ImageSource="setting.png" TextColor="Brown" FontAttributes="Bold" TabImagePosition="Left">
+                    <tabView:SfTabItem Header="Mpangilio" ImageSource="setting.png" TextColor="Brown" FontAttributes="Bold" ImagePosition="Left">
                         <tabView:SfTabItem.Content>
 
                             <VerticalStackLayout Margin="30,30,30,0">
